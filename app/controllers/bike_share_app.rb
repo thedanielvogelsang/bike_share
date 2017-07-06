@@ -137,6 +137,42 @@ class BikeShareApp < Sinatra::Base
     redirect('/trips')
   end
 
+  get '/trip-dashboard' do
+    @ave_duration_ride = Trip.average_ride_duration
+
+    @longest_ride = Trip.longest_ride
+    @shortest_ride = Trip.shortest_ride
+
+    @most_frequent_zipcode = Trip.most_frequent_zipcode
+
+    @most_start_station_name = Trip.most_frequent_start_station
+    @most_end_station = Trip.station_with_most_ending_trips
+
+    @subscriber_count = Trip.subscription_type["Subscriber"]["Count"]
+    @customers_count = Trip.subscription_type["Customer"]["Percentage"]*100
+    @subscriber_percent = Trip.subscription_type["Subscriber"]["Count"]
+    @customer_percent = Trip.subscription_type["Customer"]["Percentage"]*100
+    # hash for [:bike] [:count]
+    @bike_most_rides = Trip.bike_with_most_rides[:count]
+    @bike_least_rides = Trip.bike_with_least_rides[:count]
+
+    @date_most_trips_count = Trip.date_with_most_trips[:count]
+    @date_most_trips_date = Trip.date_with_most_trips[:date].date
+
+    @date_few_trips_count = Trip.date_with_least_trips[:count]
+    @date_few_trips_date = Trip.date_with_least_trips[:date].date
+
+    #hash for ["month_name"]
+    @rides_by_month_2013 = Trip.rides_by_month[2013]
+    @total_rides_2013 = Trip.rides_by_month[2013]["total"]
+    @rides_by_month_2014 = Trip.rides_by_month[2014]
+    @total_rides_2014 = Trip.rides_by_month[2014]["total"]
+    @rides_by_month_2015 = Trip.rides_by_month[2015]
+    @total_rides_2015 = Trip.rides_by_month[2015]["total"]
+
+    erb :"/trips/dashboard"
+  end
+
   get '/weather_conditions' do
     @weather_conditions = WeatherCondition.paginate(:page => params[:page])
     erb :"weather_conditions/index"

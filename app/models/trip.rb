@@ -100,8 +100,18 @@ class Trip < ActiveRecord::Base
   end
 
   def self.most_frequent_start_station
+    most_starting_station = group(:start_station).count.max_by do |station, count|
+      count
+    end
+
+    {station: most_starting_station[0], count: most_starting_station[1]}
+
+    # station_id = Trip.group(:start_station_id).count.max_by{|station,count| count}.first
+    # Station.find(station_id).name
+
     station_id = group(:start_station).order('count_id DESC').count(:id).first
     Station.find(station_id[0]).name
+
   end
 
   def self.station_with_most_ending_trips
