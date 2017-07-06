@@ -61,7 +61,6 @@ RSpec.describe "user clicks on stations hyperlink" do
     visit('/')
     click_link("stations")
     h2 = first(:css, ".popup", :visible=> :false)
-    require 'pry' ; binding.pry
     expect(page).to_not have_content("Average # Bikes Per Station")
     boolean = h2.matches_css?(".popup-first")
     expect(boolean).to eq(true)
