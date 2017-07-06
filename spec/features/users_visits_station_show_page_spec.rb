@@ -19,7 +19,6 @@ RSpec.describe "user visits station show page" do
     zip3 = Zipcode.create(zipcode: "90210")
 
     visit("/stations/#{station.id}")
-    save_and_open_page
     expect(page).to have_content(station.name)
     expect(page).to have_content(station.dock_count)
     expect(page).to have_content(station.city)
@@ -27,7 +26,7 @@ RSpec.describe "user visits station show page" do
     expect(page).to have_content("Destination Station: A")
     expect(page).to have_content("Origin Station: A")
     expect(page).to have_content("Station: 80215")
-    expect(page).to have_content("Bike Most Frequently Used at this Station: 25")
+    expect(page).to have_content("Bike Most Frequently Used at this Station: 6")
     expect(page).to have_content("Rides Ended at this Station: 6")
     expect(page).to have_content("Rides Started at this Station: 8")
     expect(page).to have_content("February 01, 2012")

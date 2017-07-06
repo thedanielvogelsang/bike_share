@@ -49,7 +49,6 @@ RSpec.describe Trip do
     end
   end
 
-
   describe "Class Methods" do
     describe '.longest_ride' do
       it 'returns longest ride duration' do
@@ -140,8 +139,6 @@ RSpec.describe Trip do
 
       end
     end
-
-  describe "Class methods" do
     describe ".rides_at_start_station" do
       it "returns the number of trips started at that station" do
         trip_1 = Trip.create(duration: 75, start_date_id: 2, start_station_id: 3, end_date_id: 2, end_station_id: 5, bike_id: 6, subscription_type: "customer", zipcode_id: 7)
@@ -369,5 +366,4 @@ RSpec.describe Trip do
       end
     end
   end
-end
 end
