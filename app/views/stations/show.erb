@@ -25,10 +25,10 @@
       <p><strong>City: </strong></p>
       <h6><em><%= @station.city %></em></h6>
       <p><strong>Installation Date: </strong></p>
-      <h6><em><%= @station.installation_date.date %></em></h6>
+      <h6><em><%= @station.installation_date.date.strftime('%B %d, %Y') %></em></h6>
       <p><strong>Rides Started at this Station: </strong></p>
       <h6><em><%= @rides_started %></em></h6>
-      <p><strong>Ride Ended at this Station: </strong></p>
+      <p><strong>Rides Ended at this Station: </strong></p>
       <h6><em><%= @rides_ended %></em></h6>
       <p><strong>Most Frequent Destination Station: </strong></p>
       <h6><em><%= @most_end_station %></em></h6>

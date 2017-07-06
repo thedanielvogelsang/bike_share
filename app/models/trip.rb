@@ -23,33 +23,24 @@ class Trip < ActiveRecord::Base
   end
 
   def self.date_with_most_trips
-    most_date = group(:start_date).count.max_by do |date, count|
-      count
-    end
-
+    most_date = group(:start_date).order('count_id DESC').count(:id).first
     {date: most_date[0], count: most_date[1]}
   end
 
   def self.date_with_least_trips
-    least_date = group(:start_date).count.min_by do |date, count|
-      count
-    end
+    least_date = group(:start_date).order('count_id ASC').count(:id).first
 
     {date: least_date[0], count: least_date[1]}
   end
 
   def self.bike_with_most_rides
-    most_bike = group(:bike_id).count.max_by do |bike, count|
-      count
-    end
+    most_bike = group(:bike_id).order('count_id DESC').count(:id).first
 
     {bike: most_bike[0], count: most_bike[1]}
   end
 
   def self.bike_with_least_rides
-    least_bike = group(:bike_id).count.min_by do |bike, count|
-      count
-    end
+    least_bike = group(:bike_id).order('count_id ASC').count(:id).first
 
     {bike: least_bike[0], count: least_bike[1]}
   end
@@ -71,14 +62,14 @@ class Trip < ActiveRecord::Base
   end
 
   def self.group_by_month(years)
-    grouped = group(:start_date).count
+    grouped = joins(:start_date).group("bike_share_dates.date").count
 
     grouped.each do |date, total|
-       month = date.date.strftime('%B')
-      if years[date.date.year].has_key?(month)
-        years[date.date.year][month] += total
+       month = date.strftime('%B')
+      if years[date.year].has_key?(month)
+        years[date.year][month] += total
       else
-        years[date.date.year][month] = total
+        years[date.year][month] = total
       end
     end
     years
@@ -104,8 +95,8 @@ class Trip < ActiveRecord::Base
   end
 
   def self.most_frequent_zipcode
-    zipcode_id = Trip.group(:zipcode_id).count.max_by{|k,v| v}.first
-    Zipcode.find(zipcode_id).zipcode
+    zipcode_id = group(:zipcode_id).order('count_id DESC').count(:id).first
+    Zipcode.find(zipcode_id[0]).zipcode
   end
 
   def self.most_frequent_start_station
@@ -117,12 +108,14 @@ class Trip < ActiveRecord::Base
 
     # station_id = Trip.group(:start_station_id).count.max_by{|station,count| count}.first
     # Station.find(station_id).name
+
+    station_id = group(:start_station).order('count_id DESC').count(:id).first
+    Station.find(station_id[0]).name
+
   end
 
   def self.station_with_most_ending_trips
-    most_ending_station = group(:end_station).count.max_by do |station, count|
-      count
-    end
+    most_ending_station = group(:end_station).order('count_id DESC').count(:id).first
 
     {station: most_ending_station[0], count: most_ending_station[1]}
   end

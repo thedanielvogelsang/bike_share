@@ -15,7 +15,7 @@ RSpec.describe "user edits station" do
         # save_and_open_page
     fill_in("station[name]", with: "test_station")
     fill_in("station[dock_count]", with: 500)
-    fill_in("station[installation_date_id]", with: "04-16-1990")
+    fill_in("station[installation_date_id]", with: "1990-04-16")
     fill_in("station[city]", with: "new_city")
 
     click_button("Submit Changes")
