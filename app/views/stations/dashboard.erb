@@ -22,17 +22,17 @@
     <div class="container stat-container">
         <div class="row text-center first-row">
           <div class="col-md-6 first-block">
-            <h2 class="popup popup-first" id="first-block"> total <strong>#</strong>  of stations </h2>
             <div class="panel panel-default panel-data">
               <div class="panel-body">
-                  <h3 class="stat"> <%= @total_stations %> </h3>
+                <h2 class="first-pop popup blue" id="first-block"> total <strong>#</strong>  of stations </h2>
+                <h3 class="stat"> <%= @total_stations %> </h3>
               </div>
             </div>
           </div>
           <div class="col-md-6 second-block">
             <div class="panel panel-default panel-data">
               <div class="panel-body blue">
-                <h2 class="popup popup-smaller"> average <strong>#</strong>  bikes per station: </h2>
+                <h2 class="popup pop-smaller"> average <strong>#</strong>  bikes per station: </h2>
                 <h3 class="stat"> <%= @average_bikes %> </h3>
               </div>
             </div>
@@ -42,16 +42,16 @@
           <div class="col-md-6">
             <div class="panel panel-default panel-data">
               <div class="panel-body blue">
-                  <h2 class="popup popup-bigger"> most <strong>#</strong> bikes per station: </h2>
+                  <h2 class="popup pop-bigger"> most <strong>#</strong> bikes per station: </h2>
                   <h3 class="stat"> <%= @most_bikes %> </h3>
               </div>
             </div>
           </div>
           <div class="col-md-6">
-            <h2 class="popup popup-bigger"> least <strong>#</strong>  bikes per station: </h2>
             <div class="panel panel-default panel-data">
               <div class="panel-body">
-                  <h3 class="stat"> <%= @least_bikes %> </h3>
+                <h2 class="popup pop-bigger blue"> least <strong>#</strong>  bikes per station: </h2>
+                <h3 class="stat"> <%= @least_bikes %> </h3>
               </div>
             </div>
           </div>

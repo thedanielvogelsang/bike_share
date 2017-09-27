@@ -129,7 +129,12 @@ body {
   margin-top: 10px;
 }
 
-#first-block {}
+#first-block {
+  margin-top: 25px;
+  padding-bottom: 60px;
+  padding-top: 20px;
+  padding-left: 0px;
+}
 
 .popup-smaller {
   padding-left: 20px;
@@ -138,7 +143,24 @@ body {
   padding-top: 30px;
   margin-right: 5px;
   margin-top: 0px;
-  padding-bottom: 60px; 
+  padding-bottom: 60px;
+}
+
+.pop-smaller {
+  padding-left: 20px;
+  padding-right: 30px;
+  font-size: 1.8em;
+  padding-top: 30px;
+  margin-right: 15px;
+  margin-top: 20px;
+  padding-bottom: 45px;
+}
+
+.pop-bigger {
+  padding-bottom: 30px;
+  padding-top: 30px;
+  margin-top: 25px;
+  margin-right: 40px;
 }
 
 .popup-bigger {
