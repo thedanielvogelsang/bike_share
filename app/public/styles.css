@@ -49,10 +49,17 @@ body {
 }
 
 .stat-container {
-    width: 55%;
-    padding-top: 15px;
-    padding-right: 41px;
-    text-transform: uppercase;
+  width: 55%;
+  padding-top: 15px;
+  padding-right: 41px;
+  text-transform: uppercase;
+}
+
+.trip-stats {
+  width: 55%;
+  padding-top: 15px;
+  padding-right: 41px;
+  text-transform: uppercase;
 }
 
 #mother-dash-link {
@@ -96,6 +103,10 @@ body {
   margin-top: -20px;
 }
 
+.panel-body-t{
+  margin-top: 50px;
+}
+
 .first-row {
   padding: 5px;
 }
@@ -109,20 +120,25 @@ body {
     font-weight: bold;
     font-style: italic;
     margin-right: 25px;
-    margin-top: 45px;
+    margin-top: 15px;
     padding-top: 6px;
-    padding-left: 2px;
+    padding-left: 16px;
 }
 
 .popup-first{
-  margin-top: 45px;
+  margin-top: 10px;
 }
 
 #first-block {}
 
 .popup-smaller {
-  margin-top: 50px;
+  padding-left: 20px;
+  padding-right: 30px;
   font-size: 1.8em;
+  padding-top: 30px;
+  margin-right: 5px;
+  margin-top: 0px;
+  padding-bottom: 60px; 
 }
 
 .popup-bigger {
@@ -140,6 +156,26 @@ body {
     overflow-y: hidden;
 }
 /*236,210,135<--yellow*/
+
+
+.trip {
+  font-size: 5.5em;
+  height: 100%;
+  min-height: 180px;
+  color: white;
+  text-shadow: 2px 2px rgb(103, 82, 56);
+  background-color: black;
+}
+
+.trip-station {
+  font-size: 3em;
+  height: 100%;
+  min-height: 180px;
+  color: white;
+  text-shadow: 2px 2px rgb(103, 82, 56);
+  background-color: black;
+}
+
 .stat {
     font-size: 10em;
     height: 100%;
@@ -351,6 +387,7 @@ input {
   background-size: cover;
   height: 1200px;
 }
+
 .index-table-header tr td{
   padding: 5px;
   height: 45px;
@@ -556,6 +593,10 @@ li.side-chevron-right {
   color: rgb(51, 122, 183);
 }
 
+h2.blue {
+  color: rgb(51, 122, 183);
+}
+
 span.glyphicon-home {
   width: 31px;
   font-size: 20px;
@@ -591,6 +632,9 @@ span.white {
   margin-top: 20px;
 }
 
+.container-edit-body {
+  text-align: right;
+}
 
 
 .edit-form-trips {
@@ -603,10 +647,11 @@ span.white {
   background-color: rgb(50, 41, 32);
   padding-left: 25px;
   color: white;
-  margin-left: 820px;
   margin-bottom: 280px;
   text-shadow: 2px 2px black;
-  position: fixed;
+  position: relative;
+  margin-right: 35px;
+  float: right;
 }
 
 .edit-form-trips h4 {

@@ -5,10 +5,10 @@
     </div>
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" id="mother-dash-link" href="/">
           <img class="brand-logo" alt="Brand" src="bs.png" >
         </a>
-        <h1> Trips Dashboard</h1>
+        <h1> Trip's Dashboard</h1>
       </div>
       <div class="nav navbar-nav navbar-left" href="/train-dashboard">
         <span class="glyphicon glyphicon-home white" aria-hidden="true"></span>
@@ -22,181 +22,63 @@
       <a href="/stations">View Trips</a>
       </button>
     </div>
-    <div class=" container stat-container">
+    <div class="trip-stats container">
         <div class="row text-center first-row">
-          <div class="col-md-4 first-block">
+          <div class="col-md-6 first-block">
             <div class="panel panel-default panel-data">
-            <h2 class="popup popup-first"> trip <strong>#</strong> duration stats: </h2>
-            <div class="panel panel-default panel-data">
-              <div class="panel-body">
-                  <h3 class="stat"> average ride lasts: <%= @ave_duration_ride/60 %> minutes </h3>
-              </div>
-          <div class="col-md-4 first-block">
-            <h2 class="popup popup-bigger"> longest ride to date</h2>
-            <div class="panel panel-default panel-data">
-              <div class="panel-body">
-                  <h3 class="stat"><%= @longest_ride/60 %> minutes </h3>
-              </div>
-            </div>
-          <div class="col-md-4 first-block">
-              <div class="panel-body">
-                  <h3 class="stat"> the shortest ride is exactly: <%= @shortest_ride/60 %> minute! </h3>
+              <div class="panel-body-t">
+                <h2 class="popup popup-first blue" id="first-block"> average trip <strong>duration</strong> (min): </h2>
+                <h3 class="trip"> <%= (@ave_duration_ride/60).round(2) %></h3>
               </div>
             </div>
           </div>
+          <div class="col-md-6 second-block">
+            <div class="panel panel-default panel-data">
+              <div class="panel-body-t blue">
+                <h2 class="popup popup-smaller"> longest ride (min) to date</h2>
+                <h3 class="trip"><%= (@longest_ride/60).round(0) %></h3>
+              </div>
+            </div>
+          </div>
+        </div> <!-- first row -->
         <div class="row text-center second-row">
-          <div class="col-md-6 second-block">
+          <div class="col-md-6">
             <div class="panel panel-default panel-data">
-              <div class="panel-body blue">
-                <h2 class="popup popup-smaller"> the most visits from <strong>#</strong> zipcode: </h2>
-                <h3 class="stat"> <%= @most_frequent_zipcode %> </h3>
+              <div class="panel-body-t blue">
+                <h2 class="popup popup-bigger"> shortest ride (in min) to date</h2>
+                <h3 class="trip"><%= (@shortest_ride/60).round(2) %></h3>
               </div>
             </div>
           </div>
+          <div class="col-md-6">
+            <div class="panel panel-default panel-data">
+              <div class="panel-body-t">
+                <h2 class="popup popup-bigger blue"> most popular zipcode: </h2>
+                <h3 class="trip"> <%= @most_frequent_zipcode %> </h3>
+              </div>
+            </div>
+          </div>
+        </div> <!-- second row -->
 <!-- different from layout for stations; added divs for trips  -->
-        </div>
+        <div class="row text-center third-row">
           <div class="col-md-6 second-block">
             <div class="panel panel-default panel-data">
-              <div class="panel-body blue">
-                <h2 class="popup popup-smaller"> most frequent <strong>#</strong> start station: </h2>
-                <h3 class="stat"> <%= @most_start_station_name %> </h3>
+              <div class="panel-body-t">
+                <h2 class="popup popup-smaller blue"> favorite starting station: </h2>
+                <h3 class="trip-station"> <%= @most_start_station_name.split("(")[0] %> </h3>
               </div>
             </div>
           </div>
-
-      </div>
-      <div class="col-md-6 second-block">
-        <div class="panel panel-default panel-data">
-          <div class="panel-body blue">
-            <h2 class="popup popup-smaller"> most frequent <strong>#</strong> end station: </h2>
-            <h3 class="stat"> <%= @most_end_station %> </h3>
+          <div class="col-md-6 second-block">
+            <div class="panel panel-default panel-data">
+              <div class="panel-body-t blue">
+                <h2 class="popup popup-smaller"> favorite ending station: </h2>
+                <h3 class="trip-station"> <%= @most_end_station_name.split("(")[0] %> </h3>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-    </div>
-    <div class="col-md-6 second-block">
-      <div class="panel panel-default panel-data">
-        <div class="panel-body blue">
-          <h2 class="popup popup-smaller"> stats for <strong>#</strong> users: </h2>
-          <h3 class="stat"> Subscribers: <%= @subscriber_count %> </h3>
-          <h3 class="stat"> Subscribers: <%= @subscriber_percent %> % </h3>
-          <h3 class="stat"> Customers: <%= @customers_count %> </h3>
-          <h3 class="stat"> Customers: <%= @customer_percent %> % </h3>
-        </div>
-      </div>
-    </div>
-
-        </div> <!-- first  row -->
-        `<div class="row text-center">
-          <div class="col-md-6">
-            <div class="panel panel-default panel-data">
-              <div class="panel-body blue">
-                  <h2 class="popup popup-bigger"> most <strong>#</strong> trips taken on this date: </h2>
-                  <h3 class="stat"> <%= @date_few_trips_date %> </h3>
-                  <h3 class="stat"> <%= @date_few_trips_count %> rides </h3>
-              </div>
-            </div>
-
-            <div class="panel panel-default panel-data">
-              <div class="panel-body blue">
-                  <h2 class="popup popup-bigger"> least <strong>#</strong> trips taken on this date: </h2>
-                  <h3 class="stat"> <%= @date_most_trips_date %> </h3>
-                  <h3 class="stat"> <%= @date_most_trips_count %> rides </h3>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-6">
-            <h2 class="popup popup-bigger"> least used <strong>#</strong> bike: </h2>
-            <div class="panel panel-default panel-data">
-              <div class="panel-body">
-                  <h3 class="stat"> ridden <%= @bike_least_rides %> times </h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <h2 class="popup popup-bigger"> most used <strong>#</strong> bike: </h2>
-            <div class="panel panel-default panel-data">
-              <div class="panel-body">
-                  <h3 class="stat"> ridden <%= @bike_most_rides %> times </h3>
-              </div>
-            </div>
-          </div>
-
-        </div> <!-- second  row -->
-      </div> <!-- stats -->
-  </div> <!-- opening container -->
-  <div class="row text-center">
-    <div class="container body-beam">
-    </div>
-    <div class="col-md-6">
-      <div class="panel panel-default panel-background">
-        <div class="panel-header"><h2> Rides by Year </div>
-      </div>
-        <div class="table-left">
-        <table>
-          <tr>
-            <th> 2013: </th>
-            <th> 2014: </th>
-            <th> 2015: </th>
-          </tr>
-
-          <tr>
-            <td class="nudge-right"><%= @total_rides_2013 %></td>
-            <td class="nudge-right"><%= @total_rides_2014 %></td>
-            <td class="nudge-right"><%= @total_rides_2015 %></td>
-          </tr>
-
-        </table>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <!-- <div class="panel panel-default panel-background">
-        <div class="panel-header"><h2>Stations With Fewest #Bikes</div>
-      </div> -->
-      <div class="table-right">
-      <!-- <table>
-        <tr>
-          <th>Name</th>
-          <th>City</th>
-          <th>Dock Count</th>
-          <th>Installation Date</th>
-        </tr>
-
-      </table> -->
-      </div>
     </div>
   </div>
-  <hr/>
-  <div class="row text-center">
-
-
-    <div class="container col-md-6 border-me">
-      <div class="panel panel-default panel-background">
-        <div class="panel-header"><h2>Rides in 2014: </div>
-      </div>
-
-
-        <% @rides_by_month_2013.each do |month, count| %>
-        <tr>
-         <td class="nudge-right"> <%= "There are #{count} rides in #{month} in 2013" %> </td>
-         <%= end %>
-        </tr>
-
-        <% @rides_by_month_2014.each do |month, count| %>
-        <tr>
-          <td class="nudge-right"> <%= "There are #{count} rides in #{month} in 2014" %> </td>
-          <%= end %>
-        </tr>
-
-        <% @rides_by_month_2015.each do |month, count| %>
-        <tr>
-         <td class="nudge-right"> <%= "There are #{count} rides in #{month} in 2015" %> </td>
-         <% end %>
-       </tr>
-
-     </div>
+</div>
 </body>

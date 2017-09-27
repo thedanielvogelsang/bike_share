@@ -147,7 +147,7 @@ class BikeShareApp < Sinatra::Base
     @most_frequent_zipcode = Trip.most_frequent_zipcode
 
     @most_start_station_name = Trip.most_frequent_start_station
-    @most_end_station = Trip.station_with_most_ending_trips
+    @most_end_station_name = Trip.station_with_most_ending_trips
 
     @subscriber_count = Trip.subscription_type["Subscriber"]["Count"]
     @customers_count = Trip.subscription_type["Customer"]["Percentage"]*100
