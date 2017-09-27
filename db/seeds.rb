@@ -22,8 +22,11 @@ system 'Say "Finished Destroying Trips"'
 WeatherCondition.destroy_all
 system 'Say "Finished Destroying WeatherConditions"'
 
+start_time = Time.now
+puts start_time
+sleep 3
+stations = CSV.read "./db/csv/station.csv", headers: true, header_converters: :symbol
 stations = delete_columns("./db/csv/station.csv", [:lat, :long])
-trips = CSV.open "./db/csv/trip.csv", headers: true, header_converters: :symbol
 
 stations.each do |row|
   row = row.to_h
@@ -32,8 +35,8 @@ stations.each do |row|
 end
 system 'Say "Finished Seeding Stations"'
 
-start_time = Time.now
-
+binding.pry
+trips = CSV.open "./db/csv/trip.csv", headers: true, header_converters: :symbol
 trips.each do |row|
   row = row.to_h
   row[:start_date_id] = BikeShareDate.seed_by_date(row.delete(:start_date))

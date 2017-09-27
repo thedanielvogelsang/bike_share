@@ -10,9 +10,6 @@
         </a>
         <h1> Station's Dashboard</h1>
       </div>
-      <div class="nav navbar-nav navbar-left" href="/station-dashboard">
-        <span class="glyphicon glyphicon-home white" aria-hidden="true"></span>
-      </div>
     </div>
   </nav>
 
@@ -126,7 +123,9 @@
       </div>
       <div class="panel-body">
         <ul class="new-station">
-          <li><img class="new-station-img" src="newest_station.png"/></li>
+          <a href="/stations/<%=@oldest_station.id + 7%>">
+            <img class="new-station-img" src="newest_station.png"/>
+          </a>
           <li class="list-station"><%= @newest_station.name %></li>
           <li class="list-station"><%= @newest_station.city %></li>
           <li class="list-station"><%= @newest_station.installation_date.date %></li>
@@ -140,7 +139,9 @@
       </div>
       <div class="panel-body">
         <ul class="new-station">
-          <img class="new-station-img" src="oldest_station.png"/></li>
+          <a href="/stations/<%=@oldest_station.id + 7%>">
+            <img class="new-station-img" src="oldest_station.png"/></li>
+          </a>
           <li class="list-station"><%= @oldest_station.name %></li>
           <li class="list-station"><%= @oldest_station.city %></li>
           <li class="list-station"><%= @oldest_station.installation_date.date %></li>
