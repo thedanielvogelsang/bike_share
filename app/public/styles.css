@@ -521,7 +521,7 @@ li.side-chevron-right {
   padding-left: 0px;
   padding-right: -20px;
   margin-right: 20px;
-  margin-left: 100px;
+  margin-left: 50px;
   width: 300px;
 }
 
@@ -592,6 +592,16 @@ li.side-chevron-right {
   font-family: 'Zilla Slab', serif;
 }
 
+a.homepage-link-a{
+  border: 1px dashed rgb(51, 122, 183);
+  padding-right: 50px;
+  padding-left: 70px;
+}
+a.homepage-link-b{
+  border: 1px dashed rgb(51, 122, 183);
+  padding-right: 20px;
+  padding-left: 20px;
+}
 
 .dashboard-bar {
   border-top: 2px white solid;
@@ -604,7 +614,7 @@ li.side-chevron-right {
   text-align: center;
   padding-top: 60px;
   margin-top: 105px;
-  margin-left: -100px;
+  margin-left: -90px;;
   margin-bottom: 0;
   font-size: 8em;
   position: fixed;
@@ -623,14 +633,14 @@ li.side-chevron-right {
   padding:20px;
   padding-left: 50px;
   padding-right: 50px;
-  margin-top: 400px;
+  margin-top: 440px;
   padding-top: 0px;
   position: static;
   height: 560px;
 }
 .span-bar {
   margin-left: 9%;
-  margin-top: 47px;
+  margin-top: 0px;
   margin-bottom: 0;
   font-size: 8em;
   position: fixed;
