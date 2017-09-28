@@ -25,8 +25,8 @@ system 'Say "Finished Destroying WeatherConditions"'
 start_time = Time.now
 puts start_time
 sleep 3
-stations = CSV.read "./db/csv/station.csv", headers: true, header_converters: :symbol
-stations = delete_columns("./db/csv/station.csv", [:lat, :long])
+stations = CSV.read "./db/station.csv", headers: true, header_converters: :symbol
+stations = delete_columns("./db/station.csv", [:lat, :long])
 
 stations.each do |row|
   row = row.to_h
