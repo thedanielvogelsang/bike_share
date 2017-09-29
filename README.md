@@ -27,12 +27,13 @@ and bundle install the application gems:
 then drop any existing database, create and migrate:
 `rake db:{drop, create, migrate}`
 
-visit the following url to see original download sourcing fro csv data. Currently app is set to populate data with only a small portion of original database.
+`visit the following url to see original download sourcing fro csv data. Currently app is set to populate data with only a small portion of original database.
 
 station csv data:
-https://www.kaggle.com/benhamner/sf-bay-area-bike-share/data
+https://www.kaggle.com/benhamner/sf-bay-area-bike-share/data`
 
-to run the app as is, seed the data:
+to run the app as is, seed the data (this should take approximately 1 min):
+
 `rake db:seed`
 
 And you're ready to launch! in the console fire up SHOTGUN and visit the BikeShare welcome page:
