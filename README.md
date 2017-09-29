@@ -13,6 +13,9 @@ The dashboards are populated using Active Record queries and minimal ruby handli
 first clone the repo:
 `git clone git@github.com:thedanielvogelsang/bike_share.git`
 
+cd into it:
+`cd bike_share`
+
 install bundle:
 `gem install bundle`
 
