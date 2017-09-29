@@ -519,8 +519,9 @@ li.side-chevron-right {
 
 .col-trips {
   padding-left: 0px;
-  margin-right: 20px;
-  margin-left: 0px;
+  margin-right: 0px;
+  padding-right: 30px;
+  margin-left: 70px;
   width: 300px;
 }
 
@@ -593,7 +594,7 @@ li.side-chevron-right {
 
 a.homepage-link-a{
   border: 1px dashed rgb(51, 122, 183);
-  padding-right: 50px;
+  padding-right: 70px;
   padding-left: 70px;
 }
 a.homepage-link-b{
@@ -639,7 +640,7 @@ a.homepage-link-b{
   height: 750px;
 }
 .span-bar {
-  margin-left: 9%;
+  margin-left: 10px;
   margin-top: 0px;
   margin-bottom: 0;
   font-size: 8em;
