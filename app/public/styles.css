@@ -519,9 +519,8 @@ li.side-chevron-right {
 
 .col-trips {
   padding-left: 0px;
-  padding-right: -20px;
   margin-right: 20px;
-  margin-left: 50px;
+  margin-left: 0px;
   width: 300px;
 }
 
@@ -606,6 +605,7 @@ a.homepage-link-b{
 .dashboard-bar {
   border-top: 2px white solid;
   padding-top: 10px;
+  padding-right: 100px;
 }
 
 .dashboard-bar h4{
@@ -614,7 +614,7 @@ a.homepage-link-b{
   text-align: center;
   padding-top: 60px;
   margin-top: 105px;
-  margin-left: -90px;;
+  margin-right: 220px;
   margin-bottom: 0;
   font-size: 8em;
   position: fixed;
@@ -624,19 +624,19 @@ a.homepage-link-b{
   margin-left: 20px;
   color: white;
   padding-right: 0px;
-  margin-right: 0px;
+  margin-right: 80px;
   padding-top: 0px;
   margin-top: 10px;
 }
 
 .dash {
-  padding:20px;
-  padding-left: 50px;
+  padding: 20px;
+  padding-left: 150px;
   padding-right: 50px;
   margin-top: 440px;
   padding-top: 0px;
   position: static;
-  height: 560px;
+  height: 750px;
 }
 .span-bar {
   margin-left: 9%;
